@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:linear-gradient(-45deg,#1a1a40,#2b1055,#8e2de2,#ff4d8d);
+background-size:400% 400%;
+animation:gradient 15s ease infinite;
+overflow-x:hidden;
+color:white;
+
+}
+
+@keyframes gradient{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+.hero{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+
+}
+
+h1{
+
+font-size:70px;
+animation:fadeDown 2s ease;
+
+}
+
+.subtitle{
+
+margin-top:20px;
+font-size:22px;
+opacity:.9;
+max-width:700px;
+animation:fadeUp 2s ease;
+
+}
+
+.button{
+
+margin-top:50px;
+padding:18px 45px;
+background:#ff4d8d;
+border:none;
+border-radius:60px;
+font-size:22px;
+font-weight:bold;
+color:white;
+cursor:pointer;
+transition:.35s;
+box-shadow:0 0 25px #ff4d8d;
+
+animation:pulse 2s infinite;
+
+}
+
+.button:hover{
+
+transform:scale(1.08);
+box-shadow:0 0 50px #ff4d8d;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+50%{transform:scale(1.06);}
+100%{transform:scale(1);}
+
+}
+
+@keyframes fadeDown{
+
+from{
+
+opacity:0;
+transform:translateY(-50px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.section{
+
+padding:80px 20px;
+
+}
+
+.video-card{
+
+max-width:850px;
+margin:60px auto;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
+padding:25px;
+border-radius:25px;
+box-shadow:0 10px 35px rgba(0,0,0,.35);
+
+}
+
+video{
+
+width:100%;
+border-radius:20px;
+
+}
+
+.video-title{
+
+font-size:28px;
+margin-bottom:20px;
+text-align:center;
+
+}
+
+footer{
+
+padding:50px;
+text-align:center;
+opacity:.8;
+font-size:18px;
+
+}
+
+/* Floating Hearts */
+
+.hearts{
+
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+overflow:hidden;
+pointer-events:none;
+
+}
+
+.heart{
+
+position:absolute;
+bottom:-50px;
+font-size:20px;
+animation:float linear infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+
+}
+
+}
+
+/* Confetti */
+
+.confetti{
+
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(110vh) rotate(720deg);
+
+}
+
+}
+
+@media(max-width:700px){
+
+h1{
+
+font-size:48px;
+
+}
+
+.subtitle{
+
+font-size:18px;
+
+}
+
+.button{
+
+font-size:18px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<section class="hero">
+
+<h1>🎂 Happy Birthday! 🎉</h1>
+
+<p class="subtitle">
+Wishing you a day filled with happiness, laughter, beautiful memories, and endless smiles.
+I made something special just for you ❤️
+</p>
+
+<button class="button" onclick="showVideos()">
+💖 Click Here 💖
+</button>
+
+</section>
+
+<section id="videos" class="section">
+
+<div class="video-card">
+
+<div class="video-title">
+🎥 Birthday Surprise #1
+</div>
+
+<video controls>
+<source src="video1.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<div class="video-card">
+
+<div class="video-title">
+🎥 Birthday Surprise #2
+</div>
+
+<video controls>
+<source src="video2.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</section>
+
+<footer>
+
+❤️ Made with lots of love ❤️
+
+</footer>
+
+<script>
+
+/* Floating Hearts */
+
+const hearts=document.querySelector(".hearts");
+
+for(let i=0;i<35;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=Math.random()>.5?"❤️":"💖";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.fontSize=(15+Math.random()*20)+"px";
+
+heart.style.animationDuration=(6+Math.random()*10)+"s";
+
+heart.style.animationDelay=Math.random()*5+"s";
+
+hearts.appendChild(heart);
+
+}
+
+/* Button */
+
+function showVideos(){
+
+document.getElementById("videos").scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+confetti();
+
+}
+
+/* Confetti */
+
+function confetti(){
+
+for(let i=0;i<180;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.background=`hsl(${Math.random()*360},100%,60%)`;
+
+c.style.animationDuration=(3+Math.random()*2)+"s";
+
+c.style.transform=`rotate(${Math.random()*360}deg)`;
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},5000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
